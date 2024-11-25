@@ -41,9 +41,10 @@ class RegisterSerializer(serializers.ModelSerializer):
     
     
 class ProfileSerializer(serializers.ModelSerializer):
+    first_name = serializers.CharField(source='user.first_name', read_only=True)
     class Meta:
         model = Profile
-        fields = ['profile_picture', 'bio', 'status']
+        fields = ['first_name','profile_picture', 'bio', 'status']
 
 class ChatRoomSerializer(serializers.ModelSerializer):
     class Meta:
